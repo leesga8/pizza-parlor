@@ -33,3 +33,23 @@ Pizza.prototype.pizzaPrice = function() {
 // }
 
 //USER INTERFACE LOGIC
+
+$(document).ready(function(){
+  $('#formOne').submit(function(event){
+    event.preventDefault();
+    const size = $('#size').val();
+
+    const pepp = $('#topp1').val();
+
+    let myPizza = new Pizza();
+    myPizza.size = size;
+
+    myPizza.toppings = []
+
+    myPizza.toppings.push(pepp);
+
+    const total = myPizza.pizzaPrice()
+    $("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings);
+
+  })
+})
