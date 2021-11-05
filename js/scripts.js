@@ -104,7 +104,8 @@ $(document).ready(function () {
       array.push($(this).val());
     });
     
-    const size = $("#size").val();
+    const size = $("#sizeorder").val();
+    
     let myPizza = new Pizza(size, array);
     order.addPizza(myPizza);
     displayPizzaDetails(order);
