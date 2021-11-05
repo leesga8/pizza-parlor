@@ -32,10 +32,11 @@ Order.prototype.deletePizza = function (id) {
   delete this.pizzas[id];
   return true;
 };
+
 // BL for Pizzas
-function Pizza(toppings, size) {
-  this.toppings = toppings;
+function Pizza(size, toppings) {
   this.size = size;
+  this.toppings = toppings;
 }
 
 Pizza.prototype.pizzaPrice = function () {
@@ -64,20 +65,20 @@ let order = new Order();
 
 function displayPizzaDetails(orderToDisplay) {
   let pizzasList = $("ul#pizzas");
-  let htmlForContactInfo = "";
+  let htmlForInfo = "";
   Object.keys(orderToDisplay.pizzas).forEach(function (key) {
     const pizza = orderToDisplay.findPizza(key);
-    htmlForContactInfo += "<li id=" + pizza.id + ">" + pizza.size + pizza.toppings + "</li>";
+    htmlForInfo += "<li id=" + pizza.id + ">" + "SIZE: " + pizza.size + "TOPPINGS: " + pizza.toppings + "</li>";
   });
-  pizzasList.html(htmlForContactInfo);
+  pizzasList.html(htmlForInfo);
 }
 
 function showPizza(pizzaId) {
   const pizza = order.findPizza(pizzaId);
   $("#show-contact").show();
-  $(".size").html(pizza.size);
+  $(".botsize").html(pizza.size);
   $(".toppings").html(pizza.toppings);
-  //$(".price").html(contact.address);
+  // $(".price").html(contact.address);
   let buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + + pizza.id + ">Delete</button>");
@@ -98,12 +99,12 @@ $(document).ready(function () {
   attachContactListeners();
   $("form#formOne").submit(function (event) {
     event.preventDefault();
-    const size = $("input#size").val();
     let array = []
     const toppings = $.each($("input[name='topping']:checked"), function () {
       array.push($(this).val());
     });
     
+    const size = $("#size").val();
     let myPizza = new Pizza(size, array);
     order.addPizza(myPizza);
     displayPizzaDetails(order);
