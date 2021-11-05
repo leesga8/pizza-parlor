@@ -31,14 +31,13 @@ We need a prototype method for the cost of a pizza depending on the toppings sel
   Get length of array toppings, +2 for each. 
   Get size of pizza, S+5, M+10, L+15
 
-We can create an Order object to store out Pizza objects. We can add, delete, find Order. 
+We can create an Order object to store our Pizza objects. We can add, delete, find Order objects. 
 
 
 Objects\
 Pizza(toppings, size)\
   this.toppings = toppings;\
   this.size = size;\
-  this.price = price
 
 Order()\
   this.pizzas = {}\
