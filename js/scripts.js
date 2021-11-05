@@ -1,9 +1,10 @@
+//BUSINESS LOGIC
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
 }
 
-Pizza.prototype.sizePrice = function() {
+Pizza.prototype.pizzaPrice = function() {
   sizePrice = 0;
   switch(this.size) {
     case 'small':
@@ -16,16 +17,19 @@ Pizza.prototype.sizePrice = function() {
     sizePrice += 15;
     break;
   }
-  return sizePrice;
-}
-
-Pizza.prototype.topPrice = function(){
   topPrice = 0;
   topPrice += (this.toppings.length)*2
-  return topPrice;
+
+  return sizePrice + topPrice;
 }
 
-Pizza.prototype.finalPrice = function(){
-  finalPrice = topPrice + sizePrice;
-  return finalPrice;
-}
+// Pizza.prototype.topPrice = function(){
+
+// }
+
+// Pizza.prototype.finalPrice = function(){
+//   finalPrice = topPrice + sizePrice;
+//   return finalPrice;
+// }
+
+//USER INTERFACE LOGIC

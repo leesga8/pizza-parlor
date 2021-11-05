@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
@@ -7,9 +8,43 @@
   <script src="js/scripts.js"></script>
   <title>Pizza Parlor</title>
 </head>
+
 <body>
   <div class="container">
-    
+    <div class='jumbotron'>
+      <h1>Al's Pizza Parlor</h1>
+    </div>
+    <form id="formOne">
+      <div class="form-group">
+        <label for="size">Choose your size:</label>
+        <select class="form-control" id="size">
+          <option value='small'>Small</option>
+          <option value='medium'>Medium</option>
+          <option value='large'>Large</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <h2>Choose your Toppings:</h2>
+        <input type="checkbox" id="topp1" name="topp1" value="pepperoni">
+        <label for="topp1">Pepperoni</label><br>
+        <input type="checkbox" id="topp2" name="topp2" value="sausage">
+        <label for="topp2">Italian Sausage</label><br>
+        <input type="checkbox" id="topp3" name="topp3" value="pineapple">
+        <label for="topp3">Pineapple</label><br>
+        <input type="checkbox" id="topp4" name="topp4" value="Olives">
+        <label for="topp4">Olives</label><br>
+        <input type="checkbox" id="topp5" name="topp5" value="Boat">
+        <label for="topp5">Peppers</label><br>
+        <input type="checkbox" id="topp6" name="topp6" value="Peppers">
+        <label for="topp6">Canadian Bacon</label><br>
+        <input type="checkbox" id="topp7" name="topp7" value="bacon">
+        <label for="topp7">Pineapple</label><br>
+        <input type="checkbox" id="topp8" name="topp8" value="anchovies">
+        <label for="topp8">Anchovies</label><br>
+      </div>
+      <button type="submit" class="btn btn-primary">Order</button>
+    </form>
   </div>
 </body>
+
 </html>
