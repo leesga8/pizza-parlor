@@ -68,7 +68,7 @@ function displayPizzaDetails(orderToDisplay) {
   let htmlForInfo = "";
   Object.keys(orderToDisplay.pizzas).forEach(function (key) {
     const pizza = orderToDisplay.findPizza(key);
-    htmlForInfo += "<li id=" + pizza.id + ">" + "SIZE: " + pizza.size + " " + "TOPPINGS: " + pizza.toppings.join(", ") + "PRICE: " + pizza.pizzaPrice() + "</li>";
+    htmlForInfo += "<li id=" + pizza.id + ">" + "SIZE: " + pizza.size + "<br>" + "TOPPINGS: " + pizza.toppings.join(", ") + "<br>" + "PRICE: " + pizza.pizzaPrice() + "</li>";
   });
   pizzasList.html(htmlForInfo);
 }

@@ -1,4 +1,38 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Cabin:ital@1&family=Dongle:wght@700&family=Exo+2&family=Lobster&family=Merriweather+Sans&family=Montserrat:wght@600&family=Rampart+One&family=Zen+Antique&display=swap');
+
 #show-contact {
   display: none;
 }
+
+.body {
+  background-color: blue;
+font-size: 3em;
+font-family: 'Dongle', sans-serif;
+}
+.jumbotron {
+  background-image: url("../img/background.jpg");
+  /* background-color: red; */
+  background-size: center;
+  background-size: contain;
+}
+
+#formOne {
+  width:50%;
+  display: inline-block;
+  float: left;
+}
+
+#bottomOrder {
+  width:50%;
+  display: inline-block;
+}
+/* font-family: 'Abel', sans-serif;
+font-family: 'Cabin', sans-serif;
+font-family: 'Dongle', sans-serif;
+font-family: 'Exo 2', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Merriweather Sans', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Rampart One', cursive;
+font-family: 'Zen Antique', serif; */
