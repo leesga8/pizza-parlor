@@ -1,4 +1,24 @@
 //BUSINESS LOGIC
+
+//BL for Order
+function Order(){
+  this.pizzas = {};
+  this.id = 0;
+}
+
+
+Order.prototype.addPizza = function(pizza) {
+  pizza.id = this.assignId();
+  this.pizzas[pizza.id] = pizza;
+};
+
+Order.prototype.assignId = function() {
+  this.id += 1;
+  return this.id;
+};
+
+
+// BL for Pizzas
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
@@ -23,24 +43,11 @@ Pizza.prototype.pizzaPrice = function() {
   return sizePrice + topPrice;
 }
 
-// Pizza.prototype.topPrice = function(){
-
-// }
-
-// Pizza.prototype.finalPrice = function(){
-//   finalPrice = topPrice + sizePrice;
-//   return finalPrice;
-// }
-
 //USER INTERFACE LOGIC
-
 $(document).ready(function(){
   $('#formOne').submit(function(event){
     event.preventDefault();
     const size = $('#size').val();
-
-    // const pepp = $('#topp1').val();
-    // const sausage = $('#topp2').val();
 
     let myPizza = new Pizza();
     myPizza.size = size;
@@ -49,10 +56,8 @@ $(document).ready(function(){
     $.each($("input[name='topping']:checked"), function(){
         myPizza.toppings.push($(this).val());
     });
-    //myPizza.toppings.push(pepp);
-    //myPizza.toppings.push(sausage);
     const total = myPizza.pizzaPrice()
-    $("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings);
+    $("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings.join(", "));
 
   })
 })

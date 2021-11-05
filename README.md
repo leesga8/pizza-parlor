@@ -17,7 +17,7 @@
 
 _This website for a pizza company allows users to choose one or more individual toppings and a size to order a pizza and see the final cost_
 
-## [GitHub Pages](https://leesga8.github.io/pizza-parlor)
+### [GitHub Pages](https://leesga8.github.io/pizza-parlor)
 
 ## Specs
 User will select a size of pizza S, M, L and that will be the starting price. Input - select boxes
@@ -66,6 +66,11 @@ Describe: topPrice()
 Test: "It should return the price according to the length of the topping array"
 Code: myPizza.topPrice()
 Expected Output: 6
+
+Describe: pizzaPrice()
+Test: "It should return the price of toppings and size"
+Code: myPizza.pizzaPrice()
+Expected: 20
 
 ## Setup/Installation Requirements
 
