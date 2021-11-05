@@ -68,7 +68,7 @@ function displayPizzaDetails(orderToDisplay) {
   let htmlForInfo = "";
   Object.keys(orderToDisplay.pizzas).forEach(function (key) {
     const pizza = orderToDisplay.findPizza(key);
-    htmlForInfo += "<li id=" + pizza.id + ">" + "SIZE: " + pizza.size + "TOPPINGS: " + pizza.toppings + "</li>";
+    htmlForInfo += "<li id=" + pizza.id + ">" + "SIZE: " + pizza.size + " " + "TOPPINGS: " + pizza.toppings.join(", ") + "PRICE: " + pizza.pizzaPrice() + "</li>";
   });
   pizzasList.html(htmlForInfo);
 }
@@ -78,7 +78,7 @@ function showPizza(pizzaId) {
   $("#show-contact").show();
   $(".botsize").html(pizza.size);
   $(".toppings").html(pizza.toppings);
-  // $(".price").html(contact.address);
+  $(".price").html(pizza.pizzaPrice());
   let buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + + pizza.id + ">Delete</button>");
