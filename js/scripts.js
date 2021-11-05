@@ -39,15 +39,18 @@ $(document).ready(function(){
     event.preventDefault();
     const size = $('#size').val();
 
-    const pepp = $('#topp1').val();
+    // const pepp = $('#topp1').val();
+    // const sausage = $('#topp2').val();
 
     let myPizza = new Pizza();
     myPizza.size = size;
 
     myPizza.toppings = []
-
-    myPizza.toppings.push(pepp);
-
+    $.each($("input[name='topping']:checked"), function(){
+        myPizza.toppings.push($(this).val());
+    });
+    //myPizza.toppings.push(pepp);
+    //myPizza.toppings.push(sausage);
     const total = myPizza.pizzaPrice()
     $("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings);
 
