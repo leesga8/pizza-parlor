@@ -1,63 +1,136 @@
 //BUSINESS LOGIC
 
 //BL for Order
-function Order(){
+function Order() {
   this.pizzas = {};
   this.id = 0;
 }
 
 
-Order.prototype.addPizza = function(pizza) {
+Order.prototype.addPizza = function (pizza) {
   pizza.id = this.assignId();
   this.pizzas[pizza.id] = pizza;
 };
 
-Order.prototype.assignId = function() {
+Order.prototype.assignId = function () {
   this.id += 1;
   return this.id;
 };
 
 
+Order.prototype.findPizza = function (id) {
+  if (this.pizzas[id] != undefined) {
+    return this.pizzas[id];
+  }
+  return false;
+};
+
+Order.prototype.deletePizza = function (id) {
+  if (this.pizzas[id] === undefined) {
+    return false;
+  }
+  delete this.pizzas[id];
+  return true;
+};
 // BL for Pizzas
 function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
 }
 
-Pizza.prototype.pizzaPrice = function() {
+Pizza.prototype.pizzaPrice = function () {
   sizePrice = 0;
-  switch(this.size) {
-    case 'small':
-    sizePrice += 5;
-    break;
-    case'medium':
-    sizePrice += 10;
-    break;
-    case 'large':
-    sizePrice += 15;
-    break;
+  switch (this.size) {
+    case 'Small':
+      sizePrice += 5;
+      break;
+    case 'Medium':
+      sizePrice += 10;
+      break;
+    case 'Large':
+      sizePrice += 15;
+      break;
   }
   topPrice = 0;
-  topPrice += (this.toppings.length)*2
+  topPrice += (this.toppings.length) * 2
 
   return sizePrice + topPrice;
 }
 
 //USER INTERFACE LOGIC
+
+
+let order = new Order();
+
+function displayPizzaDetails(orderToDisplay) {
+  let pizzasList = $("ul#pizzas");
+  let htmlForContactInfo = "";
+  Object.keys(orderToDisplay.pizzas).forEach(function (key) {
+    const pizza = orderToDisplay.findPizza(key);
+    htmlForContactInfo += "<li id=" + pizza.id + ">" + pizza.size + pizza.toppings + "</li>";
+  });
+  pizzasList.html(htmlForContactInfo);
+}
+
+function showPizza(pizzaId) {
+  const pizza = order.findPizza(pizzaId);
+  $("#show-contact").show();
+  $(".size").html(pizza.size);
+  $(".toppings").html(pizza.toppings);
+  //$(".price").html(contact.address);
+  let buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" + + pizza.id + ">Delete</button>");
+}
+
+function attachContactListeners() {
+  $("ul#pizzas").on("click", "li", function () {
+    showPizza(this.id);
+  });
+  $("#buttons").on("click", ".deleteButton", function () {
+    order.deletePizza(this.id);
+    $("#show-contact").hide();
+    displayPizzaDetails(order);
+  });
+}
+
+$(document).ready(function () {
+  attachContactListeners();
+  $("form#formOne").submit(function (event) {
+    event.preventDefault();
+    const size = $("input#size").val();
+    let array = []
+    const toppings = $.each($("input[name='topping']:checked"), function () {
+      array.push($(this).val());
+    });
+    
+    let myPizza = new Pizza(size, array);
+    order.addPizza(myPizza);
+    displayPizzaDetails(order);
+  });
+});
+
+
+
+
+
+
+
+
+/*
 $(document).ready(function(){
   $('#formOne').submit(function(event){
     event.preventDefault();
     const size = $('#size').val();
-
     let myPizza = new Pizza();
     myPizza.size = size;
-
     myPizza.toppings = []
     $.each($("input[name='topping']:checked"), function(){
         myPizza.toppings.push($(this).val());
     });
-    const total = myPizza.pizzaPrice()
-    $("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings.join(", "));
+    const total = myPizza.pizzaPrice();
+    console.log(total);
+    //$("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings.join(", "));
 
   })
-})
+  */
