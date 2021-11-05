@@ -20,22 +20,33 @@ _This website for a pizza company allows users to choose one or more individual 
 ## [GitHub Pages](https://leesga8.github.io/pizza-parlor)
 
 ## Specs
-User will select a size of pizza S, M, L and that will be the base price. 
-User will select one or more individual toppings, add each to the base price
-Final cost will be shown upon submit. 
+User will select a size of pizza S, M, L and that will be the starting price. Input - select boxes
+User will check toppings, each topping +$2 Input - checkboxes?
+Display size, toppings, and cost upon submit. 
+
 
 We will need a Pizza object with two properties, toppings and size. 
   Toppings will be an array of toppings. 
 We need a prototype method for the cost of a pizza depending on the toppings selected. 
+  Get length of array toppings, +2 for each. 
+  Get size of pizza, S+5, M+10, L+15
 
-Objects
-Pizza(toppings, size)
-  this.toppings = toppings;
-  this.size = size;
+We can create an Order object to store out Pizza objects. We can add, delete, find Order. 
 
-Prototypes
-Pizza.prototype.addPrice() = function() {
-  for each topping selected, add price
+
+Objects\
+Pizza(toppings, size)\
+  this.toppings = toppings;\
+  this.size = size;\
+  this.price = price
+
+Order()\
+  this.pizzas = {}\
+  this.ID = 0
+
+Prototypes\
+Pizza.prototype.addPrice() = function() {\
+  for each topping selected, add price\
 }
 
 
@@ -43,12 +54,14 @@ Pizza.prototype.addPrice() = function() {
 
 Describe: Pizza()
 
-Test: "It should return a Pizza object with two properties for toppings and size"
-Code: const myPizza = new Pizza(["anchovies", "pineapple"], "medium");
+Test: "It should return a Pizza object with two properties for toppings and size"\
+Code: const myPizza = new Pizza(["anchovies", "pineapple"], "medium");\
 Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium" }
 
-
-
+Describe: sizePrice()
+Test: "It should return the price according to size s,m,l
+Code: sizePrice('small')
+Expected Output: 5
 
 
 ## Setup/Installation Requirements
