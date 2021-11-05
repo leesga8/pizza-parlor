@@ -60,9 +60,13 @@ Expected Output: Pizza { toppings: ["anchovies", "pineapple"], size: "medium" }
 
 Describe: sizePrice()
 Test: "It should return the price according to size s,m,l
-Code: sizePrice('small')
+Code: myPizza.sizePrice()
 Expected Output: 5
 
+Describe: topPrice()
+Test: "It should return the price according to the length of the topping array"
+Code: myPizza.topPrice()
+Expected Output: 6
 
 ## Setup/Installation Requirements
 

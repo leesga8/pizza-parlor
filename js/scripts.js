@@ -18,3 +18,14 @@ Pizza.prototype.sizePrice = function() {
   }
   return sizePrice;
 }
+
+Pizza.prototype.topPrice = function(){
+  topPrice = 0;
+  topPrice += (this.toppings.length)*2
+  return topPrice;
+}
+
+Pizza.prototype.finalPrice = function(){
+  finalPrice = topPrice + sizePrice;
+  return finalPrice;
+}
