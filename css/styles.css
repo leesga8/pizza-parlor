@@ -14,6 +14,12 @@ body {
 
 }
 
+.btn-danger {
+  font-size: 4em;
+  color:rgb(255, 255, 255);
+  font-family: 'Rampart One', cursive;
+  border-radius: .6em;
+}
 #show-contact {
   display: none;
 }
@@ -49,6 +55,18 @@ ul, p {
 font-size: 1.5em;
 font-family: 'Montserrat', sans-serif;
 }
+
+
+li {
+  border: solid rgb(222, 61, 61);
+  border-radius: 1em;
+  padding: 1em;
+  margin: .5em;
+}
+
+
+
+
 /* font-family: 'Abel', sans-serif;
 font-family: 'Cabin', sans-serif;
 font-family: 'Dongle', sans-serif;
