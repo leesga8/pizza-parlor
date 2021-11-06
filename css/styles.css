@@ -1,15 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Cabin:ital@1&family=Dongle:wght@700&family=Exo+2&family=Lobster&family=Merriweather+Sans&family=Montserrat:wght@600&family=Rampart+One&family=Zen+Antique&display=swap');
 
+body {
+  background-image: url("../img/bodybackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+.container {
+  background-color: rgb(255, 196, 196, 0.967);
+  height: 100em;
+
+}
+
 #show-contact {
   display: none;
 }
 
-.body {
-  background-color: blue;
-font-size: 3em;
-font-family: 'Dongle', sans-serif;
-}
 .jumbotron {
   background-image: url("../img/background.jpg");
   /* background-color: red; */
@@ -19,13 +27,27 @@ font-family: 'Dongle', sans-serif;
 
 #formOne {
   width:50%;
-  display: inline-block;
   float: left;
 }
 
 #bottomOrder {
   width:50%;
   display: inline-block;
+}
+
+#sizeorder {
+  width: 60%;
+}
+
+h2 {
+  font-family: 'Dongle', sans-serif;
+  font-size: 4em;
+  text-decoration: underline rgb(251, 125, 125);
+}
+
+ul, p {
+font-size: 1.5em;
+font-family: 'Montserrat', sans-serif;
 }
 /* font-family: 'Abel', sans-serif;
 font-family: 'Cabin', sans-serif;
@@ -36,3 +58,9 @@ font-family: 'Merriweather Sans', sans-serif;
 font-family: 'Montserrat', sans-serif;
 font-family: 'Rampart One', cursive;
 font-family: 'Zen Antique', serif; */
+
+#show-contact {
+  border: solid rgb(222, 61, 61);
+  border-radius: 1em;
+  padding: 1em;
+}
