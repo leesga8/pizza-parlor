@@ -111,28 +111,3 @@ $(document).ready(function () {
     displayPizzaDetails(order);
   });
 });
-
-
-
-
-
-
-
-
-/*
-$(document).ready(function(){
-  $('#formOne').submit(function(event){
-    event.preventDefault();
-    const size = $('#size').val();
-    let myPizza = new Pizza();
-    myPizza.size = size;
-    myPizza.toppings = []
-    $.each($("input[name='topping']:checked"), function(){
-        myPizza.toppings.push($(this).val());
-    });
-    const total = myPizza.pizzaPrice();
-    console.log(total);
-    //$("#order").text("Order: $" + total + " Size: " + myPizza.size + " Toppings: " + myPizza.toppings.join(", "));
-
-  })
-  */
